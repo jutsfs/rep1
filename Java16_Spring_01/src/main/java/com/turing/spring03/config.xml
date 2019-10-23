@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 根节点： 管理所有Bean-->
+<!-- 就可以把Beans理解为Spring容器 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 针式打印机 -->
+    <bean id="pinPrinter" class="com.turing.spring03.PinPrinter"></bean>
+    
+    <!-- 激光打印机 -->
+    <bean id="laserPrinter" class="com.turing.spring03.LaserPrinter"></bean>
+    
+    <!-- 图文店 -->
+    <!-- IOC 
+    <bean id="printHouse" class="com.turing.spring03.PrintHouse">
+    	
+    	<property name="printer" ref="laserPrinter"></property>
+    </bean>
+    -->
+    
+    
+    <bean id="printHouse2" class="com.turing.spring03.PrintHouse">
+    	<!-- DI:依赖注入，构造器注入 -->
+    	<constructor-arg name="printer" ref="pinPrinter"></constructor-arg>
+    </bean>
+    
+
+</beans>
